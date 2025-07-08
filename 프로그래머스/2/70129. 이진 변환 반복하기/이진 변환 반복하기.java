@@ -1,24 +1,12 @@
 class Solution {
-    public int[] solution(String s) {
-        int[] answer = new int[2];
-        String strR = "";
-        int totCnt = 0;
-        int totZero = 0;
-        
-        while(!s.equals("1")){
-            
-            int tempStrLen = s.replace("0", "").length();
-            
-            totZero += (s.length() - tempStrLen);
-            
-            s = Integer.toBinaryString(tempStrLen);
-            totCnt ++;
-        }
-        answer[0] = totCnt;
-        answer[1] = totZero;
-        
-        
-        
+    public int solution(int n) {
+        int answer = 0;
+
+        for(int i = 1; i <= n; i+=2){
+            if(n % i == 0) answer++;
+        }   
+
         return answer;
     }
 }
+/* "주어진 자연수를 연속된 자연수의 합으로 표현하는 방법의 수는 주어진 수의 홀수 약수의 개수와 같다는 정수론 정리" */
